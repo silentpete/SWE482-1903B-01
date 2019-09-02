@@ -9,10 +9,11 @@ import (
 func DoesShoesTableExist(db *sql.DB) (bool, error) {
 	_, err := db.Query("SELECT 1 FROM shoes LIMIT 1;")
 	if err != nil {
-        log.Println("shoes tables does NOT exist")
+		log.Println("shoes tables does NOT exist")
 		return false, err
-    }
-    log.Println("shoes table exists")
+	}
+
+	log.Println("shoes table already exists")
 	return true, nil
 }
 

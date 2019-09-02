@@ -28,3 +28,25 @@ func ShoesTable(db *sql.DB) {
 		log.Println("table created successfully")
 	}
 }
+
+// InsertShoe will insert the inventory into the shoes table
+func InsertShoe(db *sql.DB, brand, model, color string, size int, price float32, stock int) {
+	// will need the database and a map/shoes structure
+	stmt, err := db.Prepare("INSERT INTO shoes(brand,model,color,size,price,stock) VALUES(?,?,?,?,?,?)")
+	if err != nil {
+		log.Fatal("INSERT INTO returned error:", err)
+	}
+	res, err := stmt.Exec(brand, model, color, size, price, stock)
+	if err != nil {
+		log.Fatal("statement exec returned an error:", err)
+	}
+	lastID, err := res.LastInsertId()
+	if err != nil {
+		log.Fatal(err)
+	}
+	rowCnt, err := res.RowsAffected()
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Printf("ID = %d, affected = %d\n", lastID, rowCnt)
+}
