@@ -1,0 +1,8 @@
+[
+    {"brand": "nike-men", "model": "air force one", "color": "white", "size": 10, "price": "99.99", "stock": 0},
+    {"brand": "converse-men", "model": "chuck taylor", "color": "black", "size": 10, "price": "49.99", "stock": 0},
+    {"brand": "converse-women", "model": "chuck taylor", "color": "black", "size": 8, "price": "49.99", "stock": 0},
+    {"brand": "prada-women", "model": "leather slingback", "color": "tan", "size": 7, "price": "89.99", "stock": 0},
+    {"brand": "gucci-women", "model": "leather pump", "color": "black", "size": 8, "price": "49.99", "stock": 0},
+    {"brand": "gucci-women", "model": "leather pump", "color": "tan", "size": 8, "price": "49.99", "stock": 0}
+]
