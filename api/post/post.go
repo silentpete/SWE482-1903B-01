@@ -1,3 +1,4 @@
+// Package post is used to create a new resource
 package post
 
 import (

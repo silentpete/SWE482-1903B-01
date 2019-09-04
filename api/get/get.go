@@ -1,3 +1,4 @@
+// Package get is used to retrieve a resource.
 package get
 
 import (

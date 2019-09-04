@@ -1,3 +1,4 @@
+// Package put is used to update an existing resource.
 package put
 
 import (

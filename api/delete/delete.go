@@ -1,3 +1,4 @@
+// Package delete is used to delete a resource.
 package delete
 
 import (
