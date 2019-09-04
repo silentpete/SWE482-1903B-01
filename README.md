@@ -1,6 +1,20 @@
 # SWE482-1903B-01
 
-Implementing a simple shoes sales system.
+For this class we are implementing a shoes sales system. We will all need to contribute to the Project Plan,
+
+## Table of Contents
+
+- [Development Environment](#development-environment)
+- [Bundy's Program](#bundys-program)
+- [MySQL Database](#mysql-database)
+  - [Stand up a MySQL Database](#stand-up-a-mysql-database)
+  - [Log into MySQL Container](#log-into-mysql-container)
+    - [MySQL Common Commands](#mysql-common-commands)
+- [References](#references)
+
+## Development Environment
+
+The minimal environment needed to interact with the Bundy's Program is having Go installed. You can find direction here: [https://golang.org/dl/](https://golang.org/dl/)
 
 ## Bundy's Program
 
