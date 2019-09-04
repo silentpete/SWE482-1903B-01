@@ -8,10 +8,10 @@ import (
 	"log"
 	"os"
 
-	"./crud/create"
-	"./crud/delete"
-	"./crud/read"
-	"./crud/update"
+	"./api/delete"
+	"./api/get"
+	"./api/post"
+	"./api/put"
 
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -41,6 +41,8 @@ type inventoryStructure []struct {
 }
 
 func createDBObject() (db *sql.DB) {
+	// set the database connection string
+	dataSourceName = *sqlDBUser + ":" + *sqlDBPass + "@tcp(" + *sqlDBHost + ":" + *sqlDBPort + ")/" + *sqlDBName
 	// prepare the database abstraction for later use
 	db, err := sql.Open("mysql", dataSourceName)
 	if err != nil {
@@ -80,37 +82,37 @@ func loadInventory(db *sql.DB) {
 	}
 
 	for _, shoe := range inventoryMapped {
-		create.InsertShoe(db, shoe.Brand, shoe.Model, shoe.Color, shoe.Size, shoe.Price, shoe.Stock)
+		post.InsertShoe(db, shoe.Brand, shoe.Model, shoe.Color, shoe.Size, shoe.Price, shoe.Stock)
 	}
 }
 
 func main() {
 	// parses the command-line flags and must be called after all flags are defined and before flags are accessed by the program
 	flag.Parse()
-	// set the database connection string
-	dataSourceName = *sqlDBUser + ":" + *sqlDBPass + "@tcp(" + *sqlDBHost + ":" + *sqlDBPort + ")/" + *sqlDBName
+
 	db := createDBObject()
 	defer db.Close()
-	read.DBConfirmConnection(db)
+
+	get.DBConfirmConnection(db)
 
 	if *loadDatabase == true {
-		val, err := read.DoesShoesTableExist(db)
+		val, err := get.DoesShoesTableExist(db)
 		if err != nil {
-			log.Println("read.DoesTableExist returned:", err)
+			log.Println("get.DoesTableExist returned:", err)
 		}
 		if val == false {
-			create.ShoesTable(db)
+			post.ShoesTable(db)
 			loadInventory(db)
 		}
 	}
 
 	if *dropDatabase == true {
-		val, err := read.DoesShoesTableExist(db)
+		val, err := get.DoesShoesTableExist(db)
 		if err != nil {
-			log.Println("read.DoesTableExist returned:", err)
+			log.Println("get.DoesTableExist returned:", err)
 		}
 		if val == true {
-			update.TruncateShoesTable(db)
+			put.TruncateShoesTable(db)
 			delete.ShoesTable(db)
 		}
 	}
