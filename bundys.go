@@ -8,10 +8,10 @@ import (
 	"log"
 	"os"
 
-	"./api/delete"
-	"./api/get"
-	"./api/post"
-	"./api/put"
+	"github.com/silentpete/SWE482-1903B-01/api/delete"
+	"github.com/silentpete/SWE482-1903B-01/api/get"
+	"github.com/silentpete/SWE482-1903B-01/api/post"
+	"github.com/silentpete/SWE482-1903B-01/api/put"
 
 	_ "github.com/go-sql-driver/mysql"
 )
