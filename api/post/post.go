@@ -6,8 +6,8 @@ import (
 	"log"
 )
 
-// ShoesTable creates the shoes table
-func ShoesTable(db *sql.DB) {
+// CreateShoesTable creates the shoes table
+func CreateShoesTable(db *sql.DB) {
 	stmt, err := db.Prepare(
 		"CREATE Table shoes" +
 			"(id int NOT NULL AUTO_INCREMENT," +
