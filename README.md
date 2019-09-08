@@ -4,6 +4,8 @@ For this class we are implementing a shoes sales system. We will all need to con
 
 ## Table of Contents
 
+- [Production Environment](#production-environment)
+  - [Pre-Reqs](#pre-reqs)
 - [Development Environment](#development-environment)
 - [Bundy's Program](#bundys-program)
 - [MySQL Database](#mysql-database)
@@ -11,6 +13,21 @@ For this class we are implementing a shoes sales system. We will all need to con
   - [Log into MySQL Container](#log-into-mysql-container)
   - [MySQL Common Commands](#mysql-common-commands)
 - [References](#references)
+
+## Production Environment
+
+To stand up this environment, please fulfill the pre-reqs before running the first_run.sh script. This can be run locally in a development environemtn as well.
+
+### Pre-Reqs
+
+To start the Bundy's environment, there are some expectations.
+
+- CentOS 7
+- SSH Access
+- System has access to the internet (github.com and docker.com)
+- Account has ability to install packages on the system (for now, just run as root)
+
+Once the expectations are fulfilled, the `first_run.sh` script can be run to start the stack.
 
 ## Development Environment
 

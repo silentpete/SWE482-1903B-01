@@ -1,6 +1,7 @@
 version: "2"
 volumes:
   mysql:
+    external: true
 services:
   mysql:
     image: mysql:8.0.17
