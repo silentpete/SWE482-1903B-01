@@ -104,6 +104,7 @@ func Drop() {
 
 // AllShoesHandler is a handler function to check if the shoes table exists.
 func AllShoesHandler(w http.ResponseWriter, r *http.Request) {
+	log.Println("the request uri:", r.RequestURI)
 	get.DBConfirmConnection(DB)
 	get.DoesShoesTableExist(DB)
 	rows := get.AllShoes(DB)
@@ -119,7 +120,7 @@ func AllShoesHandler(w http.ResponseWriter, r *http.Request) {
 			price               float32
 		)
 		if err := rows.Scan(&id, &brand, &model, &color, &size, &price, &stock); err != nil {
-			log.Fatal("rows.Scan returned an error: ", err)
+			log.Panicln("rows.Scan returned an error: ", err)
 		}
 
 		shoeStruct := inventoryStructure{
@@ -139,19 +140,19 @@ func AllShoesHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("marshaling error:", err)
 	}
+	log.Println("return results")
 	fmt.Fprintf(w, string(bs))
-	log.Println("the request uri:", r.RequestURI)
 }
 
 // ShoesTableExistHandler is a handler function to check if the shoes table exists.
 func ShoesTableExistHandler(w http.ResponseWriter, r *http.Request) {
-    get.DBConfirmConnection(DB)
+	log.Println("the request uri:", r.RequestURI)
+	get.DBConfirmConnection(DB)
 	val, err := get.DoesShoesTableExist(DB)
 	if err != nil {
-		log.Println("DoesTableExist returned:", err)
+		log.Println("DoesShoesTableExist returned:", err)
 	}
 	exist := "{\"exist\": " + strconv.FormatBool(val) + "}"
+	log.Println("return results")
 	fmt.Fprintf(w, exist)
-
-	log.Println("the request uri:", r.RequestURI)
 }

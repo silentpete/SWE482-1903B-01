@@ -6,17 +6,6 @@ import (
 	"log"
 )
 
-// Shoes is the structure of a shoes.
-type Shoes struct {
-	ID    int
-	Brand string
-	Model string
-	Color string
-	Size  int
-	Price float32
-	Stock int
-}
-
 // AllShoes is used to get all the show form the shoes table.
 func AllShoes(db *sql.DB) *sql.Rows {
 	stmt, err := db.Prepare("SELECT * FROM shoes ORDER BY id DESC;")

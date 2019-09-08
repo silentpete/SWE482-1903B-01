@@ -19,12 +19,12 @@ func CreateShoesTable(db *sql.DB) {
 			"stock int," +
 			"PRIMARY KEY (id));")
 	if err != nil {
-		log.Fatal("db.Prepare returned an error:", err)
+		log.Panicln("db.Prepare returned an error:", err)
 	}
 
 	_, err = stmt.Exec()
 	if err != nil {
-		log.Fatal("db.Exec returned an error:", err)
+		log.Panicln("db.Exec returned an error:", err)
 	} else {
 		log.Println("table created successfully")
 	}
@@ -35,19 +35,19 @@ func InsertShoe(db *sql.DB, brand, model, color string, size int, price float32,
 	// will need the database and a map/shoes structure
 	stmt, err := db.Prepare("INSERT INTO shoes(brand,model,color,size,price,stock) VALUES(?,?,?,?,?,?)")
 	if err != nil {
-		log.Fatal("INSERT INTO returned error:", err)
+		log.Panicln("INSERT INTO returned error:", err)
 	}
 	res, err := stmt.Exec(brand, model, color, size, price, stock)
 	if err != nil {
-		log.Fatal("statement exec returned an error:", err)
+		log.Panicln("statement exec returned an error:", err)
 	}
 	lastID, err := res.LastInsertId()
 	if err != nil {
-		log.Fatal(err)
+		log.Panicln(err)
 	}
 	rowCnt, err := res.RowsAffected()
 	if err != nil {
-		log.Fatal(err)
+		log.Panicln(err)
 	}
 	log.Printf("ID = %d, affected = %d\n", lastID, rowCnt)
 }
