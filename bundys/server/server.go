@@ -9,10 +9,10 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/silentpete/SWE482-1903B-01/api/delete"
-	"github.com/silentpete/SWE482-1903B-01/api/get"
-	"github.com/silentpete/SWE482-1903B-01/api/post"
-	"github.com/silentpete/SWE482-1903B-01/api/put"
+	"github.com/silentpete/SWE482-1903B-01/bundys/api/delete"
+	"github.com/silentpete/SWE482-1903B-01/bundys/api/get"
+	"github.com/silentpete/SWE482-1903B-01/bundys/api/post"
+	"github.com/silentpete/SWE482-1903B-01/bundys/api/put"
 )
 
 var (

@@ -9,16 +9,20 @@ For this class we are implementing a shoes sales system. We will all need to con
 - [MySQL Database](#mysql-database)
   - [Stand up a MySQL Database](#stand-up-a-mysql-database)
   - [Log into MySQL Container](#log-into-mysql-container)
-    - [MySQL Common Commands](#mysql-common-commands)
+  - [MySQL Common Commands](#mysql-common-commands)
 - [References](#references)
 
 ## Development Environment
 
-The minimal environment needed to interact with the Bundy's Program is having Go installed. You can find direction here: [https://golang.org/dl/](https://golang.org/dl/)
+The minimal environment needed to interact with the Bundy's Program is having Go installed. You can find download and installation directions here: [https://golang.org/dl/](https://golang.org/dl/)
+
+The full working development environment would need Go, Linux or Windows with Docker.
 
 ## Bundy's Program
 
 The Bundy's API will be wrote in Go. It will present minimal API endpoints to interact with the database.
+
+### Bundy's Help
 
 To see the program "help", run the following command.
 
@@ -28,7 +32,7 @@ go run bundys.go --help
 
 ## MySQL Database
 
-Bundy's will use a MySQL Database.
+Bundy's will interact with a MySQL Database.
 
 Official MySQL Container: [https://hub.docker.com/_/mysql](https://hub.docker.com/_/mysql)
 
@@ -44,7 +48,7 @@ docker run -dit --name mysql -e MYSQL_ROOT_PASSWORD=bundys -e MYSQL_DATABASE=bun
 docker exec -it mysql bash
 ```
 
-#### MySQL Common Commands
+### MySQL Common Commands
 
 Login to MySQL database
 

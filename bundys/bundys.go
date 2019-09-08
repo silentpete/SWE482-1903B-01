@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/silentpete/SWE482-1903B-01/server"
+	"github.com/silentpete/SWE482-1903B-01/bundys/server"
 
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -22,9 +22,6 @@ var (
 	sqlDBPass     = flag.String("sql-db-pass", "bundys", "set the SQL users password")
 	sqlDBPort     = flag.String("sql-db-port", "3306", "set the SQL port to connect to")
 	sqlDBUser     = flag.String("sql-db-user", "root", "set the SQL username to connect as")
-
-	dataSourceName string
-	tableName      = "shoes"
 )
 
 func main() {
@@ -56,11 +53,11 @@ func main() {
 	}
 
 	log.Println("set up handlers")
-	log.Println("add /shoesTableExist")
-	http.HandleFunc("/shoesTableExist", server.ShoesTableExistHandler)
+	log.Println("add /api/shoesTableExist")
+	http.HandleFunc("/api/shoesTableExist", server.ShoesTableExistHandler)
 
-	log.Println("add /allShoesHandler")
-	http.HandleFunc("/allShoes", server.AllShoesHandler)
+	log.Println("add /api/allShoesHandler")
+	http.HandleFunc("/api/allShoes", server.AllShoesHandler)
 
 	log.Println("start the http server (this will block, keeping the server running)")
 	err := http.ListenAndServe("0.0.0.0:6060", nil)

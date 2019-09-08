@@ -1,0 +1,24 @@
+version: "2"
+volumes:
+  mysql:
+services:
+  mysql:
+    image: mysql:8.0.17
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=bundys
+      - MYSQL_DATABASE=bundys
+    volumes:
+      - mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+    command:
+      - '--default-authentication-plugin=mysql_native_password'
+      - '--skip-mysqlx'
+  bundys:
+    image: bundys:latest
+    container_name: bundys
+    ports:
+      - 6060:6060
+    command:
+      - '--sql-db-host=mysql'
