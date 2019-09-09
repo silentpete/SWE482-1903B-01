@@ -102,11 +102,18 @@ func Drop() {
 	}
 }
 
+func enableCors(w *http.ResponseWriter) {
+	(*w).Header().Set("Access-Control-Allow-Origin", "*")
+	(*w).Header().Set("Content-Type", "application/json")
+	(*w).Header().Set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+}
+
 // AllShoesHandler is a handler function to check if the shoes table exists.
 func AllShoesHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println("the request uri:", r.RequestURI)
 	get.DBConfirmConnection(DB)
 	get.DoesShoesTableExist(DB)
+	enableCors(&w)
 	rows := get.AllShoes(DB)
 	defer rows.Close()
 
