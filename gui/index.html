@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-	<html>
-		<head>
-	<link rel="css/style" href="styles.css">
-		</head>
-			<body>
-
-<h1>Bundy's Inventory</h1>
-
-<div>
-        
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="css/style" href="styles.css">
+</head>
+<body>
+    <h1>Bundy's Inventory</h1>
+    <div>
         <table id="shoeInv">
-	        <colgroup>
+            <colgroup>
                 <col class="twenty" />
                 <col class="fourty" />
                 <col class="thirtyfive" />
@@ -18,60 +16,58 @@
             </colgroup>
             <tr>
                 <th onclick="sortTable(0)"><span class="glyphicon glyphicon-sort"></span>&nbsp&nbspid</th>
-				<th onclick="sortTable(3)"><span class="glyphicon glyphicon-sort"></span>&nbsp&nbspbrand</th>
+                <th onclick="sortTable(3)"><span class="glyphicon glyphicon-sort"></span>&nbsp&nbspbrand</th>
                 <th onclick="sortTable(1)"><span class="glyphicon glyphicon-sort"></span>&nbsp&nbspmodel</th>
                 <th onclick="sortTable(2)"><span class="glyphicon glyphicon-sort"></span>&nbsp&nbspcolor</th>
                 <th onclick="sortTable(3)"><span class="glyphicon glyphicon-sort"></span>&nbsp&nbspsize</th>
-				<th onclick="sortTable(4)"><span class="glyphicon glyphicon-sort"></span>&nbsp&nbspprice</th>
-				<th onclick="sortTable(5)"><span class="glyphicon glyphicon-sort"></span>&nbsp&nbspstock</th>
-				
+                <th onclick="sortTable(4)"><span class="glyphicon glyphicon-sort"></span>&nbsp&nbspprice</th>
+                <th onclick="sortTable(5)"><span class="glyphicon glyphicon-sort"></span>&nbsp&nbspstock</th>
             </tr>
         </table>
     </div>
-	
-			</body>
-	</html>
-    <script>
-    </div>
-    <script>
-        //Listens for page load.
-        document.addEventListener( "DOMContentLoaded", get_json_data, false );
+</body>
+</html>
 
-        // This function is in the event listener and will execute on page load
-        function get_json_data(){
-            // API
-            var json_url = 'http://96.126.113.120:6060/api/allShoes';
+<script>
+    // Listens for page load.
+    document.addEventListener( "DOMContentLoaded", get_json_data, false );
 
-            // Builds the XMLHttpRequest.
-            xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() { 
-                if (this.readyState == 4 && this.status == 200) {
-			// Converts the response to a json object.
-                    var data = JSON.parse(this.responseText); 
-                    append_json(data);// pass the json object to the append_json function
-                }
+    // This function is in the event listener and will execute on page load
+    function get_json_data() {
+        // API
+        var json_url = 'http://96.126.113.120:6060/api/allShoes';
+        // Builds the XMLHttpRequest.
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // Converts the response to a json object.
+                var data = JSON.parse(this.responseText);
+                // Pass the json object to the append_json function
+                append_json(data);
             }
-            // Sets the request destination and type.
-            xmlhttp.open("POST", json_url, true);
-            // Headers for the request.
-            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            // Sends the request.
-            xmlhttp.send();
         }
+        // Sets the request destination and type.
+        xmlhttp.open("GET", json_url, true);
+        // Headers for the request.
+        // xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        // xmlhttp.setRequestHeader("Content-type", "application/json");
+        // Sends the request.
+        xmlhttp.send();
+    }
 
-        //This function appends the json data to the table 'shoeInv'
-        function append_json(data){
-            var table = document.getElementById('shoeInv');
-            data.forEach(function(object) {
-                var tr = document.createElement('tr');
-                tr.innerHTML = '<td>' + object.id + '</td>' +
-                '<td>' + object.brand + '</td>' +
-                '<td>' + object.model + '</td>' +
-                '<td>' + object.color + '</td>' +
-				'<td>' + object.size + '</td>' +
-				'<td>' + object.price + '</td>' +
-				'<td>' + object.stock + '</td>';
-                table.appendChild(tr);
-            });
-        }
-    </script>
+    // This function appends the json data to the table 'shoeInv'
+    function append_json(data) {
+        var table = document.getElementById('shoeInv');
+        data.forEach(function(object) {
+            var tr = document.createElement('tr');
+            tr.innerHTML = '<td>' + object.id + '</td>' +
+            '<td>' + object.brand + '</td>' +
+            '<td>' + object.model + '</td>' +
+            '<td>' + object.color + '</td>' +
+            '<td>' + object.size + '</td>' +
+            '<td>' + object.price + '</td>' +
+            '<td>' + object.stock + '</td>';
+            table.appendChild(tr);
+        });
+    }
+</script>
