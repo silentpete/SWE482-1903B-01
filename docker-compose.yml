@@ -16,10 +16,19 @@ services:
     command:
       - '--default-authentication-plugin=mysql_native_password'
       - '--skip-mysqlx'
-  bundys:
-    image: bundys:latest
-    container_name: bundys
+
+  bundys-api:
+    image: bundys-api:latest
+    container_name: bundys-api
     ports:
       - 6060:6060
     command:
       - '--sql-db-host=mysql'
+
+  bundys-gui:
+    image: httpd:2.4
+    container_name: bundys-gui
+    volumes:
+      - $PWD/gui/:/usr/local/apache2/htdocs/
+    ports:
+      - 8080:80

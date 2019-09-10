@@ -56,7 +56,7 @@ while ${mysql_starting}; do
   fi
 done
 
-docker run -it --rm --link=mysql -v $PWD/bundys/:/bundys/ bundys:latest --load-database --inventory-file=/bundys/inventory.json --sql-db-host=mysql
+docker run -it --rm --link=mysql -v $PWD/bundys/:/bundys/ bundys-api:latest --load-database --inventory-file=/bundys/inventory.json --sql-db-host=mysql
 
 docker stop mysql
 docker rm mysql

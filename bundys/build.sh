@@ -2,4 +2,4 @@
 
 CWD="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-docker build -t bundys ${CWD}/.
+docker build -t bundys-api ${CWD}/.
