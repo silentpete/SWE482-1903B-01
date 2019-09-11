@@ -1,31 +1,29 @@
 <!DOCTYPE html>
-	<html>
-		<head>
-	<link href="style.css" rel="Stylesheet" type="text/css" />
-	<script src="sorttable.js"></script>
-		</head>
-			<body>
-
-<h1 class = "app-title">Bundy's Inventory</h1>
-
-<div>
-       
+<html>
+<head>
+    <link href="style.css" rel="Stylesheet" type="text/css" />
+    <link rel="icon" href="./favicon.ico" type='image/x-icon' />
+    <script src="sorttable.js"></script>
+    <meta charset="UTF-8">
+    <title>Bundy's Shoes</title>
+</head>
+<body>
+    <h1 class = "app-title">Bundy's Inventory</h1>
+    <div>
         <table class= "sortable" id="shoeInv" border="2">
-	        <tr>
+            <tr>
                 <th onclick="sortTable(0)"><span class="shoe-name"></span>Id</th>
-				<th onclick="sortTable(1)"><span class="shoe-name"></span>Brand</th>
+                <th onclick="sortTable(1)"><span class="shoe-name"></span>Brand</th>
                 <th onclick="sortTable(2)"><span class="shoe-name"></span>Model</th>
                 <th onclick="sortTable(3)"><span class="shoe-name"></span>Color</th>
                 <th onclick="sortTable(4)"><span class="shoe-name"></span>Size</th>
-				<th onclick="sortTable(5)"><span class="shoe-name"></span>Price</th>
-				<th onclick="sortTable(6)"><span class="shoe-name"></span>Stock</th>
-				
+                <th onclick="sortTable(5)"><span class="shoe-name"></span>Price</th>
+                <th onclick="sortTable(6)"><span class="shoe-name"></span>Stock</th>
             </tr>
         </table>
     </div>
-	
-			</body>
-	</html>
+</body>
+</html>
     <script>
         //first add an event listener for page load
         document.addEventListener( "DOMContentLoaded", get_json_data, false ); // get_json_data is the function name that will fire on page load
@@ -37,9 +35,8 @@
 
             //Build the XMLHttpRequest (aka AJAX Request)
             xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() { 
+            xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {//when a good response is given do this
-
                     var data = JSON.parse(this.responseText); // convert the response to a json object
                     append_json(data);// pass the json object to the append_json function
                 }
@@ -49,11 +46,12 @@
             //set required headers for the request
             xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             // send the request
-            xmlhttp.send(); 
-			// When the request completes it will execute the code in onreadystatechange section
+            xmlhttp.send();
+            // When the request completes it will execute the code in onreadystatechange section
+        }
 
         //This function appends the json data to the table 'shoeInv'
-        function append_json(data){
+        function append_json(data) {
             var table = document.getElementById('shoeInv');
             data.forEach(function(object) {
                 var tr = document.createElement('tr');
@@ -61,12 +59,10 @@
                 '<td>' + object.brand + '</td>' +
                 '<td>' + object.model + '</td>' +
                 '<td>' + object.color + '</td>' +
-				'<td>' + object.size + '</td>' +
-				'<td>' + object.price + '</td>' +
-				'<td>' + object.stock + '</td>';
+                '<td>' + object.size + '</td>' +
+                '<td>' + object.price + '</td>' +
+                '<td>' + object.stock + '</td>';
                 table.appendChild(tr);
             });
-        
-		}	
-		
+        }
     </script>
