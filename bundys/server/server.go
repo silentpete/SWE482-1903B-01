@@ -102,6 +102,7 @@ func Drop() {
 	}
 }
 
+// enableCors is used to set Headers.
 func enableCors(w *http.ResponseWriter) {
 	(*w).Header().Set("Access-Control-Allow-Origin", "*")
 	(*w).Header().Set("Content-Type", "application/json")
