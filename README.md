@@ -102,5 +102,5 @@ SQL - [https://www.w3schools.com/sql/](https://www.w3schools.com/sql/)
 - Go API Tutorial - [https://tutorialedge.net/golang/creating-restful-api-with-golang/](https://tutorialedge.net/golang/creating-restful-api-with-golang/)
 - Go ORM Tutorial - [https://tutorialedge.net/golang/golang-orm-tutorial/](https://tutorialedge.net/golang/golang-orm-tutorial/)
 - Robson, E., & Freeman, E. (2012). Head first Html and Css (2nd ed.). Sebastopol, CA: OReilly.
-- W3schools.com. (n.d.). How TO - Sort a Table. Retrieved from https://www.w3schools.com/howto/howto_js_sort_table.asp
-- Tutorialspoint.com. (n.d.). JSON with Ajax. Retrieved from https://www.tutorialspoint.com/json/json_ajax_example.htm
+- W3 Schools How TO - Sort a Table. Retrieved from [https://www.w3schools.com/howto/howto_js_sort_table.asp](https://www.w3schools.com/howto/howto_js_sort_table.asp)
+- Tutorials Point - JSON with Ajax. Retrieved from [https://www.tutorialspoint.com/json/json_ajax_example.htm](https://www.tutorialspoint.com/json/json_ajax_example.htm)
