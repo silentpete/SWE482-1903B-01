@@ -6,8 +6,11 @@ For this class we are implementing a shoes sales system. We will all need to con
 
 - [Production Environment](#production-environment)
   - [Pre-Reqs](#pre-reqs)
+  - [Installation Process](#installation-process)
 - [Development Environment](#development-environment)
-- [Bundy's Program](#bundys-program)
+- [Bundy's GUI](#bundys-gui)
+- [Bundy's API](#bundys-api)
+  - [Bundy's API Help](#bundys-api-help)
 - [MySQL Database](#mysql-database)
   - [Stand up a MySQL Database](#stand-up-a-mysql-database)
   - [Log into MySQL Container](#log-into-mysql-container)
@@ -16,16 +19,19 @@ For this class we are implementing a shoes sales system. We will all need to con
 
 ## Production Environment
 
-To stand up this environment, please fulfill the pre-reqs before running the first_run.sh script. This can be run locally in a development environemtn as well.
+To stand up this environment, please fulfill the "pre-reqs before running the first_run.sh script. This can be run locally in a development environemtn as well.
 
 ### Pre-Reqs
 
 To start the Bundy's environment, there are some expectations.
 
 - CentOS 7
+- Access from the internet to this host on port 8080 and 6060
 - SSH Access
 - System has access to the internet (github.com and docker.com)
 - Account has ability to install packages on the system (for now, just run as root)
+
+### Installation Process
 
 Once the expectations are fulfilled, the `first_run.sh` script can be run to start the stack.
 
@@ -35,13 +41,17 @@ The minimal environment needed to interact with the Bundy's Program is having Go
 
 The full working development environment would need Go, Linux or Windows with Docker.
 
-## Bundy's Program
+## Bundy's GUI
 
-The Bundy's API will be wrote in Go. It will present minimal API endpoints to interact with the database.
+The Bundy's frontend is accessible at: [http://96.126.113.120:8080/](http://96.126.113.120:8080/). Bundy's frontend has been wrote using the most commond frontend languages: JavaScript, HTML, and CSS.
 
-### Bundy's Help
+## Bundy's API
 
-To see the program "help", run the following command.
+The Bundy's backend is wrote in the Google Go programming language. The language is very good for API style communication as the standard library has what's needed built in. The backend will present minimal API endpoints to interact with the database.
+
+### Bundy's API Help
+
+To see the program "help", move into the bundys directory, then run the following command:
 
 ```none
 go run bundys.go --help
