@@ -96,7 +96,7 @@ INSERT INTO shoes (brand,model,color,size,price,stock) VALUES ("nike", "air forc
 - Go Homepage - [https://golang.org](https://golang.org)
 - Go package database/sql - [https://golang.org/pkg/database/sql/](https://golang.org/pkg/database/sql/)
 - Go SQL Database tutorial - [http://go-database-sql.org](http://go-database-sql.org)
-SQL - [https://www.w3schools.com/sql/](https://www.w3schools.com/sql/)
+- SQL - [https://www.w3schools.com/sql/](https://www.w3schools.com/sql/)
 - Go CRUD Example - [https://www.golangprograms.com/example-of-golang-crud-using-mysql-from-scratch.html](https://www.golangprograms.com/example-of-golang-crud-using-mysql-from-scratch.html)
 - Go MySQL Tutorial - [https://tutorialedge.net/golang/golang-mysql-tutorial/](https://tutorialedge.net/golang/golang-mysql-tutorial/)
 - Go API Tutorial - [https://tutorialedge.net/golang/creating-restful-api-with-golang/](https://tutorialedge.net/golang/creating-restful-api-with-golang/)
