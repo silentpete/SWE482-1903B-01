@@ -11,8 +11,8 @@ services:
       - MYSQL_DATABASE=bundys
     volumes:
       - mysql:/var/lib/mysql
-    ports:
-      - 3306:3306
+    #ports:
+    #  - 3306:3306
     command:
       - '--default-authentication-plugin=mysql_native_password'
       - '--skip-mysqlx'
